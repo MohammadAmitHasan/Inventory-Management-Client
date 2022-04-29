@@ -5,9 +5,9 @@ function CustomLink({ children, to, ...props }) {
     let match = useMatch({ path: resolved.pathname, end: true });
 
     const activeStyle = {
-        fontSize: '18px',
+        fontSize: '15px',
         margin: '0 10px',
-        padding: '3px 10px',
+        padding: '4px 10px',
         borderRadius: '5px',
         textDecoration: 'none',
         color: match ? '#ff2e70' : 'white',

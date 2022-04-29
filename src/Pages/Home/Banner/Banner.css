@@ -1,0 +1,8 @@
+#banner {
+    background-image: url('banner_BG.jpg');
+    height: 550px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+}
