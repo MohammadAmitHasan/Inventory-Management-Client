@@ -18,8 +18,7 @@ const Navbar = () => {
             </div>
             <ul className={`bg-color z-50 md:flex justify-end text-center left-0 w-full absolute md:static duration-300 ease-in ${open ? 'top-14' : 'top-[-220px]'}`}>
                 <CustomLink to={'/'}>HOME</CustomLink>
-                <CustomLink to={'/blogs'}>LOGIN</CustomLink>
-                <CustomLink to={'/about'}>SIGN UP</CustomLink>
+                <CustomLink to={'/login'}>LOGIN</CustomLink>
             </ul>
         </nav>
 
