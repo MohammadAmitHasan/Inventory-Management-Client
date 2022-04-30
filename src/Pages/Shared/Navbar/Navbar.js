@@ -3,9 +3,13 @@ import logo from '../../../img/logo.png'
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
 import CustomLink from '../CustomLink/CustomLink';
 import './Navbar.css'
+import auth from '../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
     const [open, setOpen] = useState(false);
     return (
         <nav className='py-2 bg-color flex container items-center mx-auto'>
@@ -18,7 +22,12 @@ const Navbar = () => {
             </div>
             <ul className={`bg-color z-50 md:flex justify-end text-center left-0 w-full absolute md:static duration-300 ease-in ${open ? 'top-14' : 'top-[-220px]'}`}>
                 <CustomLink to={'/'}>HOME</CustomLink>
-                <CustomLink to={'/login'}>LOGIN</CustomLink>
+                {
+                    user ?
+                        <button onClick={() => signOut(auth)} className=''>Logout</button>
+                        :
+                        <CustomLink to={'/login'}>LOGIN</CustomLink>
+                }
             </ul>
         </nav>
 

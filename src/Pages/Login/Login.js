@@ -53,7 +53,7 @@ const Login = () => {
     let errorInfo;
     if (error || signupError || googleError || githubError || resetError) {
         errorInfo = '';
-        errorInfo = <p className='p-4 rounded bg-red-300'>
+        errorInfo = <p className='p-4 rounded bg-red-500 my-2'>
             {error?.message} {googleError?.message} {githubError?.message} {signupError?.message} {resetError?.message}
         </p>
     }
@@ -104,8 +104,8 @@ const Login = () => {
     return (
         <div className='container mx-auto mb-10 p-5'>
 
-            <div className='mx-auto mt-3 max-w-md text-center border-2 p-5 rounded-lg bg-slate-50'>
-                <h2 className='text-red-500 text-4xl font-semibold text-center mb-4'>
+            <div className='mx-auto mt-3 max-w-md text-center shadow-xl shadow-slate-400 p-5 rounded-xl'>
+                <h2 className='text-red-400 text-4xl font-semibold text-center mb-4'>
                     {login ? 'Login' : 'Sign Up'}
                 </h2>
 
@@ -115,18 +115,18 @@ const Login = () => {
 
                     {
                         login ? '' :
-                            <input ref={refName} type="text" name='name' className='bg-gray-200 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Your Full Name' required />
+                            <input ref={refName} type="text" name='name' className='bg-purple-1 00 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Your Full Name' required />
                     }
 
-                    <input ref={refEmail} type="email" name="email" id="email" className='bg-gray-200 w-full p-3 focus:outline-red-300 text-gray-900 my-2 rounded-md' placeholder='Email Address' required />
+                    <input ref={refEmail} type="email" name="email" id="email" className='bg-purple-100 w-full p-3 focus:outline-red-300 text-gray-900 my-2 rounded-md' placeholder='Email Address' required />
 
-                    <input ref={refPassword} type="password" name="password" id="password" className='bg-gray-200 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Enter Password' required />
+                    <input ref={refPassword} type="password" name="password" id="password" className='bg-purple-100 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Enter Password' required />
 
                     {
-                        login ? '' : <input ref={refConfirmPassword} type="password" name="confirmPassword" id="confirmPassword" className='bg-gray-200 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Confirm Password' required />
+                        login ? '' : <input ref={refConfirmPassword} type="password" name="confirmPassword" id="confirmPassword" className='bg-purple-100 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Confirm Password' required />
                     }
 
-                    <button type="submit" className='w-full p-3 rounded-full bg-red-500 hover:bg-red-600 text-white my-3'>
+                    <button type="submit" className='w-full p-3 rounded-full bg-purple-700 hover:bg-purple-600 text-white my-3'>
                         {
                             login ? 'Login' : 'Sign Up'
                         }
@@ -137,14 +137,14 @@ const Login = () => {
                 <p className='mt-3 text-lg'>
                     {login ? "Don't have an account.?" : "Already Have an account.?"}
 
-                    <button onClick={() => setLogin(!login)} className='text-red-600 ml-1.5'>
+                    <button onClick={() => setLogin(!login)} className='text-red-400 ml-1.5 font-semibold'>
                         {login ? "Sign Up" : "Login"}
                     </button>
                 </p>
                 {
                     login ?
-                        <p className='mt-3'>
-                            <button onClick={handleResetPassword} className='text-red-600'>
+                        <p className='mt-3 text-lg'>
+                            <button onClick={handleResetPassword} className='text-red-400 font-semibold'>
                                 Forgot Password.?
                             </button>
                         </p>
@@ -152,23 +152,23 @@ const Login = () => {
                 }
 
                 <div className='grid grid-cols-7 mb-3 mt-5 items-center'>
-                    <div className='bg-gray-900 h-0.5 col-span-3'></div>
-                    <span>OR</span>
-                    <div className='bg-gray-900 h-0.5 col-span-3'></div>
+                    <div className='bg-white h-0.5 col-span-3'></div>
+                    <span className='font-semibold'>OR</span>
+                    <div className='bg-white h-0.5 col-span-3'></div>
                 </div>
 
                 <div>
-                    <button onClick={handleGoogleSignIn} className='w-full bg-white flex items-center justify-center mb-3 border-2 my-2 rounded-md h-12'>
+                    <button onClick={handleGoogleSignIn} className='w-full bg-gray-300 flex items-center justify-center mb-3 border-2 my-2 rounded-full h-12 text-black font-semibold'>
                         <span className='mr-1'><img src="https://img.icons8.com/color/48/000000/google-logo.png" /></span>
                         Continue With Google</button>
 
-                    <button onClick={handleGithubSignIn} className='flex items-center justify-center w-full bg-zinc-800 my-2 text-white rounded-md h-12 '>
+                    <button onClick={handleGithubSignIn} className='flex items-center justify-center w-full bg-zinc-700 my-2 text-white rounded-full h-12 '>
                         <span className='mr-1'>
                             <img src="https://img.icons8.com/color/48/000000/github--v1.png" />
                         </span>
                         Continue With Github</button>
                 </div>
-                <ToastContainer />
+
             </div>
         </div>
     );
