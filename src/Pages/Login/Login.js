@@ -115,7 +115,7 @@ const Login = () => {
 
                     {
                         login ? '' :
-                            <input ref={refName} type="text" name='name' className='bg-purple-1 00 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Your Full Name' required />
+                            <input ref={refName} type="text" name='name' className='bg-purple-100 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Your Full Name' required />
                     }
 
                     <input ref={refEmail} type="email" name="email" id="email" className='bg-purple-100 w-full p-3 focus:outline-red-300 text-gray-900 my-2 rounded-md' placeholder='Email Address' required />
