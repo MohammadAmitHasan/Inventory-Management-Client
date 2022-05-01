@@ -126,7 +126,7 @@ const Login = () => {
                         login ? '' : <input ref={refConfirmPassword} type="password" name="confirmPassword" id="confirmPassword" className='bg-purple-100 w-full p-3 focus:outline-red-300 text-gray-800 my-2 rounded-md' placeholder='Confirm Password' required />
                     }
 
-                    <button type="submit" className='w-full p-3 rounded-full bg-purple-700 hover:bg-purple-600 text-white my-3'>
+                    <button type="submit" className='w-3/5 p-3 rounded-full bg-red-600 hover:bg-red-700 text-white my-3'>
                         {
                             login ? 'Login' : 'Sign Up'
                         }

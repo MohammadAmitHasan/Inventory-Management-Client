@@ -29,7 +29,6 @@ const Inventory = () => {
     const handleAddToStock = (e) => {
         e.preventDefault()
         const amount = e.target.addedInStock.value;
-        console.log(amount)
         e.target.reset();
 
         // Send a put request to the server to reduce the stock
