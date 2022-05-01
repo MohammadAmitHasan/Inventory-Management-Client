@@ -17,6 +17,7 @@ const Inventory = () => {
         const amount = e.target.itemsDelivered.value;
         e.target.reset();
 
+        // Send a put request to the server to reduce the stock
         axios.put(`http://localhost:5000/updateStock/${id}`, {
             quantity: product.quantity - (+amount)
         })
@@ -30,6 +31,13 @@ const Inventory = () => {
         const amount = e.target.addedInStock.value;
         console.log(amount)
         e.target.reset();
+
+        // Send a put request to the server to reduce the stock
+        axios.put(`http://localhost:5000/updateStock/${id}`, {
+            quantity: product.quantity + (+amount)
+        })
+            .then(res => console.log(res))
+
         toast(`${amount} ${product.unit_name} ${product.name} Added in stock`)
     }
 
