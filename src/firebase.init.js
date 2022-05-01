@@ -7,12 +7,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDyM900tAE6yrO9tAz2DeRUcafHvGJAMkc",
-    authDomain: "nasah-inventory-management.firebaseapp.com",
-    projectId: "nasah-inventory-management",
-    storageBucket: "nasah-inventory-management.appspot.com",
-    messagingSenderId: "1099247630651",
-    appId: "1:1099247630651:web:b8c9391518adb621d15f1e"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
