@@ -8,6 +8,7 @@ import Login from './Pages/Login/Login';
 import { ToastContainer } from 'react-toastify';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import AddItem from './Pages/AddItem/AddItem';
+import MyItems from './Pages/MyItems/MyItems';
 
 function App() {
   return (
@@ -33,6 +34,12 @@ function App() {
         <Route path='/addItem' element={
           <RequireAuth>
             <AddItem></AddItem>
+          </RequireAuth>
+        }></Route>
+
+        <Route path='/myItems' element={
+          <RequireAuth>
+            <MyItems></MyItems>
           </RequireAuth>
         }></Route>
 

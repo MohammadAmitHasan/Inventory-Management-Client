@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const AddItem = () => {
+    const [user] = useAuthState(auth);
 
     const handleAddItem = (e) => {
         e.preventDefault();
@@ -14,7 +17,7 @@ const AddItem = () => {
         const category = e.target.category.value;
         const supplier = e.target.supplier.value;
         const img = e.target.img.value;
-        const item = { name, description, price, quantity, unit_name, category, supplier, img }
+        const item = { name, description, price, quantity, unit_name, category, supplier, img, userEmail: user.email }
 
         // Post data to server
         axios.post('http://localhost:5000/addItem', item)

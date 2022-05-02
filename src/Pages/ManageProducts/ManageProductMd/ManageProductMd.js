@@ -25,7 +25,7 @@ const ManageProductMd = ({ product }) => {
         }
     }
     return (
-        <tr className='hover:bg-cyan-900 '>
+        <tr className='hover:bg-zinc-900'>
             <td className=" font-medium"><img src={img}
                 className="w-20" alt="Product" /></td>
 
@@ -39,13 +39,13 @@ const ManageProductMd = ({ product }) => {
 
             <td className=" px-4 py-2 font-medium">
                 <button onClick={() => loadData(_id)}>
-                    <UploadIcon className='w-10 h-10 p-2 rounded-full hover:bg-slate-800 hover:text-white'></UploadIcon>
+                    <UploadIcon className='w-10 h-10 p-2 rounded-full hover:bg-purple-800 hover:text-white'></UploadIcon>
                 </button>
             </td>
 
-            <td className=" px-4 py-2 text-red-500 font-medium">
+            <td className=" px-4 py-2 text-red-600 font-medium">
                 <button onClick={() => handleDeleteItem(_id)}>
-                    <TrashIcon className='w-10 h-10 p-2 rounded-full hover:bg-red-500 hover:text-white'></TrashIcon>
+                    <TrashIcon className='w-10 h-10 p-2 rounded-full hover:bg-red-600 hover:text-white'></TrashIcon>
                 </button>
             </td>
         </tr>

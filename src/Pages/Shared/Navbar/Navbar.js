@@ -21,17 +21,17 @@ const Navbar = () => {
                 {open ? <XIcon></XIcon> : <MenuIcon></MenuIcon>}
             </div>
             <ul className={`bg-color z-50 md:flex justify-end text-center left-0 w-full absolute md:static duration-300 ease-in ${open ? 'top-14' : 'top-[-220px]'}`}>
-                <CustomLink to={'/'}>HOME</CustomLink>
+                <CustomLink to={'/'}>Home</CustomLink>
                 {
                     user ?
                         <>
-                            <CustomLink to={'/manageProducts'}>MANAGE</CustomLink>
-                            <CustomLink to={'/addItem'}>ADD ITEM</CustomLink>
-
-                            <button onClick={() => signOut(auth)} className='font-semibold mx-3 px-2 rounded-md text-lg border-b-2 border-[#ff347400] hover:border-red-500'>LOGOUT</button>
+                            <CustomLink to={'/manageProducts'}>Manage</CustomLink>
+                            <CustomLink to={'/addItem'}>Add Items</CustomLink>
+                            <CustomLink to={'/myItems'}>My Items</CustomLink>
+                            <button onClick={() => signOut(auth)} className='font-semibold mx-3 px-2 rounded-md text-lg border-b-2 border-[#ff347400] hover:border-red-500'>Logout</button>
                         </>
                         :
-                        <CustomLink to={'/login'}>LOGIN</CustomLink>
+                        <CustomLink to={'/login'}>Login</CustomLink>
                 }
             </ul>
         </nav>
