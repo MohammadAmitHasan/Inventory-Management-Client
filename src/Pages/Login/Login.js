@@ -104,7 +104,7 @@ const Login = () => {
     return (
         <div className='container mx-auto mb-10 p-5'>
 
-            <div className='mx-auto mt-3 max-w-md text-center shadow-xl shadow-slate-400 p-5 rounded-xl'>
+            <div className='mx-auto mt-3 max-w-md text-center shadow-lg shadow-purple-500 p-5 rounded-xl'>
                 <h2 className='text-red-400 text-4xl font-semibold text-center mb-4'>
                     {login ? 'Login' : 'Sign Up'}
                 </h2>

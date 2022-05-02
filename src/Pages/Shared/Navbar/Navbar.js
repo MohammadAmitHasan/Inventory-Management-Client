@@ -24,7 +24,12 @@ const Navbar = () => {
                 <CustomLink to={'/'}>HOME</CustomLink>
                 {
                     user ?
-                        <button onClick={() => signOut(auth)} className='font-semibold mx-3 px-2 rounded-md text-lg border-b-2 border-[#ff347400] hover:border-red-500'>LOGOUT</button>
+                        <>
+                            <CustomLink to={'/manageProducts'}>MANAGE</CustomLink>
+                            <CustomLink to={'/addItem'}>ADD ITEM</CustomLink>
+
+                            <button onClick={() => signOut(auth)} className='font-semibold mx-3 px-2 rounded-md text-lg border-b-2 border-[#ff347400] hover:border-red-500'>LOGOUT</button>
+                        </>
                         :
                         <CustomLink to={'/login'}>LOGIN</CustomLink>
                 }

@@ -57,10 +57,10 @@ const Inventory = () => {
                 </div>
 
                 {/* Update Stock Display */}
-                <div>
+                <div className='text-center'>
                     {/* Items Delivered section */}
                     <div className='my-6 p-5 border-2 border-purple-400 rounded-lg'>
-                        <h3 className='text-3xl font-semibold text-red-400 text-center mb-3'>Delivered Items</h3>
+                        <h3 className='text-3xl font-semibold text-red-400 mb-3'>Delivered Items</h3>
                         <form onSubmit={handleDelivered}>
                             <input type="number" name="itemsDelivered" id="itemsDelivered" className='bg-purple-100 text-lg w-full p-3 focus:outline-red-300 text-gray-900 my-2 rounded-md' placeholder='Amount of Items Delivered' required autoComplete='off' />
 
@@ -70,7 +70,7 @@ const Inventory = () => {
 
                     {/* Add items in stock section */}
                     <div className=' p-5 border-2 border-purple-400 rounded-lg'>
-                        <h3 className='text-3xl font-semibold text-red-400 text-center mb-3'>Update Stock</h3>
+                        <h3 className='text-3xl font-semibold text-red-400 mb-3'>Update Stock</h3>
                         <form onSubmit={handleAddToStock}>
                             <input type="number" name="addedInStock" id="addedInStock" className='bg-purple-100 text-lg w-full p-3 focus:outline-red-300 text-gray-900 my-2 rounded-md' placeholder='Amount of Items added in stock' required autoComplete='off' />
 
