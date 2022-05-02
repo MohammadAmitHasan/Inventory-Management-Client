@@ -1,6 +1,7 @@
+import { ArrowNarrowRightIcon } from '@heroicons/react/solid';
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Inventory = () => {
@@ -77,6 +78,9 @@ const Inventory = () => {
                             <button className='bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded-full text-lg font-semibold my-2' type='submit'>Add To Stock</button>
                         </form>
                     </div>
+                    <Link className='text-lg px-5 mt-5 py-2 w-60 mx-auto rounded-full flex font-semibold justify-center items-center bg-red-600 hover:bg-red-700' to={'/manageProducts'}>Manage Inventories
+                        <ArrowNarrowRightIcon className='w-5 h-5 ml-2 mt-1'></ArrowNarrowRightIcon>
+                    </Link>
                 </div>
             </div>
         </div>
