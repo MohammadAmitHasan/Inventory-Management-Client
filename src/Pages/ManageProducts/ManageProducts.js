@@ -20,6 +20,7 @@ const AllProducts = () => {
                             <th class="px-4 py-2 text-emerald-600">Price</th>
                             <th class="px-4 py-2 text-emerald-600">Category</th>
                             <th class="px-4 py-2 text-emerald-600">Supplier</th>
+                            <th class="px-4 py-2 text-emerald-600">Update Stock</th>
                             <th class="px-4 py-2 text-emerald-600">Delete</th>
                         </tr>
                     </thead>
