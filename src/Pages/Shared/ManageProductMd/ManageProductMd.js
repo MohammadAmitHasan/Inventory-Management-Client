@@ -1,10 +1,9 @@
 import React from 'react';
 import { TrashIcon, UploadIcon } from '@heroicons/react/solid';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
-const ManageProductMd = ({ product }) => {
+
+const ManageProductMd = ({ product, handleDeleteItem }) => {
     const { _id, name, img, price, quantity, unit_name, supplier, category } = product;
 
     const navigate = useNavigate();
@@ -13,17 +12,6 @@ const ManageProductMd = ({ product }) => {
         navigate(`/inventory/${id}`);
     }
 
-    const handleDeleteItem = (id) => {
-        const confirm = window.confirm('Are You Sure to delete.?');
-        if (confirm) {
-            axios.delete(`http://localhost:5000/deleteItem/${id}`)
-                .then(result => {
-                    if (result.data.deletedCount > 0) {
-                        toast('Item deleted successfully')
-                    }
-                })
-        }
-    }
     return (
         <tr className='hover:bg-zinc-900'>
             <td className=" font-medium"><img src={img}

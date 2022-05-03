@@ -7,8 +7,8 @@ const useProducts = (amount) => {
     useEffect(() => {
         axios.get(`http://localhost:5000/products?amount=${amount}`)
             .then(data => setProducts(data.data))
-    }, [products])
-    return { products }
+    }, [amount])
+    return { products, setProducts }
 }
 
 export default useProducts;

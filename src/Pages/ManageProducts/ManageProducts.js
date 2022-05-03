@@ -1,12 +1,28 @@
 import React from 'react';
 import useProducts from '../../hooks/useProducts';
 import './ManageProducts.css'
-import ManageProductMd from './ManageProductMd/ManageProductMd';
-import ManageProductSm from './ManageProductSm/ManageProductSm';
-
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import ManageProductMd from '../Shared/ManageProductMd/ManageProductMd';
+import ManageProductSm from '../Shared/ManageProductSm/ManageProductSm';
 
 const AllProducts = () => {
-    const { products } = useProducts();
+    const { products, setProducts } = useProducts();
+
+    const handleDeleteItem = (id) => {
+        const confirm = window.confirm('Are You Sure to delete.?');
+        if (confirm) {
+            axios.delete(`http://localhost:5000/deleteItem/${id}`)
+                .then(result => {
+                    if (result.data.deletedCount > 0) {
+                        const filtered = products.filter(product => product._id !== id);
+                        setProducts(filtered);
+                        toast('Item deleted successfully')
+                    }
+                })
+        }
+    }
+
     return (
         <div className='mb-5 p-1 container mx-auto'>
             <h2 className='text-red-400 text-center text-4xl font-semibold mb-5'>Manage Inventory Items</h2>
@@ -29,7 +45,11 @@ const AllProducts = () => {
                     <tbody>
                         {
                             products.map(product =>
-                                <ManageProductMd key={product._id} product={product}></ManageProductMd>
+                                <ManageProductMd
+                                    key={product._id}
+                                    product={product}
+                                    handleDeleteItem={handleDeleteItem}
+                                ></ManageProductMd>
                             )
                         }
                     </tbody>
@@ -42,6 +62,7 @@ const AllProducts = () => {
                     products.map(product => <ManageProductSm
                         key={product._id}
                         product={product}
+                        handleDeleteItem={handleDeleteItem}
                     ></ManageProductSm>
                     )
                 }

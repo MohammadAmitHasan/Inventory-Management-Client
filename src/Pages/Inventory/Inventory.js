@@ -1,6 +1,6 @@
 import { ArrowNarrowRightIcon } from '@heroicons/react/solid';
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -10,7 +10,7 @@ const Inventory = () => {
     useEffect(() => {
         axios.get(`http://localhost:5000/products/${id}`)
             .then(data => setProduct(data.data))
-    }, [product])
+    }, [id])
 
     // Handle delivered button action
     const handleDelivered = (e) => {
