@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import AddItem from './Pages/AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -43,9 +44,11 @@ function App() {
           </RequireAuth>
         }></Route>
 
+        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
+
       </Routes>
       <ToastContainer />
-    </div>
+    </div >
   );
 }
 
