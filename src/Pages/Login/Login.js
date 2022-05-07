@@ -8,6 +8,7 @@ import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const Login = () => {
     window.scrollTo(0, 0);
@@ -69,6 +70,10 @@ const Login = () => {
 
         if (login) {
             await signInWithEmailAndPassword(email, password);
+            const { data } = await axios.post('http://localhost:5000/login', {
+                email
+            })
+            localStorage.setItem('access_token', data.token)
         }
         else {
             const displayName = refName.current.value;

@@ -10,7 +10,6 @@ import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
-    console.log(user)
     const [open, setOpen] = useState(false);
     return (
         <nav className='py-2 bg-color flex container items-center mx-auto'>
