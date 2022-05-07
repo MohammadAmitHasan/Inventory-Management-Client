@@ -12,7 +12,7 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     const [open, setOpen] = useState(false);
     return (
-        <nav className='py-2 bg-color flex container items-center mx-auto'>
+        <nav className='py-2 bg-color flex container items-center mx-auto fixed top-0 z-50'>
             <div className='flex w-[120px]'>
                 <img src={logo} className='h-10 ml-2 sm:ml-0' alt="" />
                 <span className='flex items-center text-2xl ml-1 text-red-400 font-semibold'>NIM</span>

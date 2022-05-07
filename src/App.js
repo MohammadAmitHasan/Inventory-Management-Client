@@ -10,6 +10,7 @@ import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import AddItem from './Pages/AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
 
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div >
   );
