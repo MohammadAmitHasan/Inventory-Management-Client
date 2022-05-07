@@ -13,7 +13,11 @@ const MyItems = () => {
     const [myProducts, setMyProducts] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myItem?email=${user.email}`)
+        axios.get(`http://localhost:5000/myItem?email=${user.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('access_token')}`
+            }
+        })
             .then(data => {
                 setMyProducts(data.data)
             })
