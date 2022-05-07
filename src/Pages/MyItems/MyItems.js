@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init'
+import { signOut } from 'firebase/auth';
 import ManageProductMd from '../Shared/ManageProductMd/ManageProductMd';
 import ManageProductSm from '../Shared/ManageProductSm/ManageProductSm';
 
@@ -12,15 +14,30 @@ const MyItems = () => {
 
     const [myProducts, setMyProducts] = useState([]);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        axios.get(`http://localhost:5000/myItem?email=${user.email}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('access_token')}`
+        const myItems = async () => {
+            try {
+                await axios.get(`http://localhost:5000/myItem?email=${user.email}`, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('access_token')}`
+                    }
+                })
+                    .then(data => {
+                        setMyProducts(data.data)
+                    })
             }
-        })
-            .then(data => {
-                setMyProducts(data.data)
-            })
+            catch (error) {
+                console.log(error)
+                if (error.response.status === 403 || error.response.status === 401) {
+                    navigate('/login');
+                    signOut(auth)
+                }
+            }
+        }
+        myItems();
+
     }, [user.email])
 
     const handleDeleteItem = (id) => {
