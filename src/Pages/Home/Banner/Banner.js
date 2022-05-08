@@ -4,7 +4,7 @@ import banner from '../../../img/banner_RM.png'
 
 const Banner = () => {
     return (
-        <div className='relative'>
+        <div className='relative mt-14'>
             <div id='banner'></div>
             <div className='absolute w-full top-0 p-5'>
                 <div className='container mx-auto grid grid-cols-1 md:grid-cols-2'>
