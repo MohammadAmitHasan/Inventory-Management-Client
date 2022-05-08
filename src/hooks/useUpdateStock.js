@@ -5,7 +5,7 @@ const useUpdateStock = (amount) => {
     const [updateStocks, setUpdateStocks] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/stockUpdate?amount=${amount}`)
+        axios.get(`https://nim-server.herokuapp.com/stockUpdate?amount=${amount}`)
             .then(data => setUpdateStocks(data.data))
     }, [amount])
     return updateStocks

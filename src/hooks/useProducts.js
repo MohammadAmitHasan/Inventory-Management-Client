@@ -5,7 +5,7 @@ const useProducts = (amount) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/products?amount=${amount}`)
+        axios.get(`https://nim-server.herokuapp.com/products?amount=${amount}`)
             .then(data => setProducts(data.data))
     }, [amount])
     return { products, setProducts }

@@ -19,7 +19,7 @@ const MyItems = () => {
     useEffect(() => {
         const myItems = async () => {
             try {
-                await axios.get(`http://localhost:5000/myItem?email=${user.email}`, {
+                await axios.get(`https://nim-server.herokuapp.com/myItem?email=${user.email}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('access_token')}`
                     }
@@ -43,7 +43,7 @@ const MyItems = () => {
     const handleDeleteItem = (id) => {
         const confirm = window.confirm('Are You Sure to delete.?');
         if (confirm) {
-            axios.delete(`http://localhost:5000/deleteItem/${id}`)
+            axios.delete(`https://nim-server.herokuapp.com/deleteItem/${id}`)
                 .then(result => {
                     if (result.data.deletedCount > 0) {
                         const filtered = myProducts.filter(product => product._id !== id);

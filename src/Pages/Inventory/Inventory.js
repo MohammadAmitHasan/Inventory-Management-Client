@@ -8,7 +8,7 @@ const Inventory = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        axios.get(`http://localhost:5000/products/${id}`)
+        axios.get(`https://nim-server.herokuapp.com/products/${id}`)
             .then(data => setProduct(data.data))
     }, [product, id])
 
@@ -22,7 +22,7 @@ const Inventory = () => {
         e.target.reset();
 
         // Send a put request to the server to reduce the stock
-        axios.put(`http://localhost:5000/updateStock/${id}`, {
+        axios.put(`https://nim-server.herokuapp.com/updateStock/${id}`, {
             quantity: product.quantity - (+amount)
         })
             .then(data => {
@@ -34,7 +34,7 @@ const Inventory = () => {
         // send the sold data to server
         const totalPrice = product.price * amount;
 
-        axios.post('http://localhost:5000/sold', {
+        axios.post('https://nim-server.herokuapp.com/sold', {
             img: product.img,
             name: product.name,
             amount,
@@ -52,7 +52,7 @@ const Inventory = () => {
         e.target.reset();
 
         // Send a put request to the server to reduce the stock
-        axios.put(`http://localhost:5000/updateStock/${id}`, {
+        axios.put(`https://nim-server.herokuapp.com/updateStock/${id}`, {
             quantity: product.quantity + (+amount)
         })
             .then(data => {
@@ -62,7 +62,7 @@ const Inventory = () => {
             })
         // send the sold data to server
 
-        axios.post('http://localhost:5000/stockUpdate', {
+        axios.post('https://nim-server.herokuapp.com/stockUpdate', {
             img: product.img,
             name: product.name,
             amount,

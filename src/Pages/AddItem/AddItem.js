@@ -20,7 +20,7 @@ const AddItem = () => {
         const item = { name, description, price, quantity, unit_name, category, supplier, img, userEmail: user.email }
 
         // Post data to server
-        axios.post('http://localhost:5000/addItem', item)
+        axios.post('https://nim-server.herokuapp.com/addItem', item)
             .then(res => {
                 if (res.data.insertedId) {
                     toast('Item Added Successfully')

@@ -16,7 +16,7 @@ const ManageProductSm = ({ product }) => {
     const handleDeleteItem = (id) => {
         const confirm = window.confirm('Are You Sure to delete.?');
         if (confirm) {
-            axios.delete(`http://localhost:5000/deleteItem/${id}`)
+            axios.delete(`https://nim-server.herokuapp.com/deleteItem/${id}`)
                 .then(result => {
                     if (result.data.deletedCount > 0) {
                         toast('Item deleted successfully')
