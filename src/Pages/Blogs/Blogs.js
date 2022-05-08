@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div className='mt-16 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='p-5 mt-16 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='p-5 shadow-lg shadow-purple-700 rounded-lg'>
                 <h2 className='text-2xl text-red-400'>Difference between javascript and nodejs</h2>
                 <p className='leading-7 text-gray-300 mt-2'>

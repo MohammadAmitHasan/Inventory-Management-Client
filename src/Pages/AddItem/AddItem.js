@@ -30,7 +30,7 @@ const AddItem = () => {
     }
 
     return (
-        <div className='container mx-auto mb-5 p-5'>
+        <div className='container mx-auto mb-5 p-5 mt-10'>
 
             <div className='text-center max-w-md mx-auto shadow-lg shadow-purple-500 p-5 rounded-lg'>
                 <h3 className='text-red-400 text-4xl font-semibold mb-3'>Add a new item</h3>

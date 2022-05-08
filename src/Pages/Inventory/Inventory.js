@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 const Inventory = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
+
     useEffect(() => {
         axios.get(`https://nim-server.herokuapp.com/products/${id}`)
             .then(data => setProduct(data.data))
@@ -19,33 +20,40 @@ const Inventory = () => {
     const handleDelivered = (e) => {
         e.preventDefault()
         const amount = e.target.itemsDelivered.value;
-        e.target.reset();
 
-        // Send a put request to the server to reduce the stock
-        axios.put(`https://nim-server.herokuapp.com/updateStock/${id}`, {
-            quantity: product.quantity - (+amount)
-        })
-            .then(data => {
-                if (data.data.modifiedCount > 0) {
-                    toast(`${amount} ${product.unit_name} ${product.name} Delivered`)
-                }
+        if (product.quantity >= amount) {
+            e.target.reset();
+            // Send a put request to the server to reduce the stock
+            axios.put(`https://nim-server.herokuapp.com/updateStock/${id}`, {
+                quantity: product.quantity - (+amount)
             })
+                .then(data => {
+                    if (data.data.modifiedCount > 0) {
+                        toast(`${amount} ${product.unit_name} ${product.name} Delivered`)
+                    }
+                })
 
-        // send the sold data to server
-        const totalPrice = product.price * amount;
+            // send the sold data to server
+            const totalPrice = product.price * amount;
 
-        axios.post('https://nim-server.herokuapp.com/sold', {
-            img: product.img,
-            name: product.name,
-            amount,
-            unitName: product.unit_name,
-            totalPrice,
-            date: today
-        })
-            .then(res => console.log(res))
+            axios.post('https://nim-server.herokuapp.com/sold', {
+                img: product.img,
+                name: product.name,
+                amount,
+                unitName: product.unit_name,
+                totalPrice,
+                date: today
+            })
+                .then(res => console.log(res))
+        }
+        else {
+            toast('Not Enough stock');
+        }
+
     }
 
-    // Handle added to stock item 
+
+    // Handle add to stock item 
     const handleAddToStock = (e) => {
         e.preventDefault()
         const amount = e.target.addedInStock.value;
@@ -60,8 +68,8 @@ const Inventory = () => {
                     toast(`${amount} ${product.unit_name} ${product.name} Added in stock`)
                 }
             })
-        // send the sold data to server
 
+        // send the sold data to server
         axios.post('https://nim-server.herokuapp.com/stockUpdate', {
             img: product.img,
             name: product.name,
@@ -97,7 +105,11 @@ const Inventory = () => {
                         <form onSubmit={handleDelivered}>
                             <input type="number" name="itemsDelivered" id="itemsDelivered" className='bg-purple-100 text-lg w-full p-3 focus:outline-red-300 text-gray-900 my-2 rounded-md' placeholder='Amount of Items Delivered' required autoComplete='off' />
 
-                            <button className='bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded-full text-lg font-semibold my-2' type='submit'>Delivered</button>
+                            <button className='bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded-full text-lg font-semibold my-2' type='submit'>
+                                {
+                                    product.quantity === 0 ? 'All Products Sold Out' : 'Delivered'
+                                }
+                            </button>
                         </form>
                     </div>
 
