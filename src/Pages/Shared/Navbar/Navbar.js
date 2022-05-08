@@ -17,11 +17,12 @@ const Navbar = () => {
                 <img src={logo} className='h-10 ml-2 sm:ml-0' alt="" />
                 <span className='flex items-center text-2xl ml-1 text-red-400 font-semibold'>NIM</span>
             </div>
-            <div onClick={() => setOpen(!open)} className='w-6 h-6 md:hidden ml-auto mr-4'>
+            <div onClick={() => setOpen(!open)} className='w-6 h-6 lg:hidden ml-auto mr-4'>
                 {open ? <XIcon></XIcon> : <MenuIcon></MenuIcon>}
             </div>
-            <ul className={`bg-color z-50 md:flex justify-end text-center left-0 w-full absolute md:static duration-300 ease-in ${open ? 'top-14' : 'top-[-220px]'}`}>
+            <ul className={`bg-color z-50 lg:flex justify-end text-center left-0 w-full absolute lg:static duration-300 ease-in ${open ? 'top-14' : 'top-[-240px]'}`}>
                 <CustomLink to={'/'}>Home</CustomLink>
+                <CustomLink to={'/blogs'}>Blogs</CustomLink>
                 {
                     user ?
                         <>
