@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import ManageProductMd from '../Shared/ManageProductMd/ManageProductMd';
 import ManageProductSm from '../Shared/ManageProductSm/ManageProductSm';
 import { Link } from 'react-router-dom';
-import { ArrowNarrowRightIcon, PlusCircleIcon } from '@heroicons/react/solid';
+import { PlusCircleIcon } from '@heroicons/react/solid';
 
 const AllProducts = () => {
     const { products, setProducts } = useProducts();

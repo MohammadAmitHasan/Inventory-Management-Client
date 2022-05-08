@@ -7,7 +7,7 @@ const Product = ({ product }) => {
 
     return (
         <div className='p-2 rounded-lg shadow-md shadow-purple-300'>
-            <img src={img} alt="product" className='rounded-lg' />
+            <img src={img} alt="product" className='rounded-lg w-100 mx-auto' />
             <div className='p-2'>
                 <h3 className='text-2xl my-2 font-semibold text-red-400'>{name}</h3>
                 <p>{description}</p>
