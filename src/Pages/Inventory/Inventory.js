@@ -12,6 +12,9 @@ const Inventory = () => {
             .then(data => setProduct(data.data))
     }, [product, id])
 
+    // Get current date
+    const today = new Date().toDateString();
+
     // Handle delivered button action
     const handleDelivered = (e) => {
         e.preventDefault()
@@ -30,7 +33,7 @@ const Inventory = () => {
 
         // send the sold data to server
         const totalPrice = product.price * amount;
-        const today = new Date().toDateString();
+
         axios.post('http://localhost:5000/sold', {
             img: product.img,
             name: product.name,
@@ -57,6 +60,16 @@ const Inventory = () => {
                     toast(`${amount} ${product.unit_name} ${product.name} Added in stock`)
                 }
             })
+        // send the sold data to server
+
+        axios.post('http://localhost:5000/stockUpdate', {
+            img: product.img,
+            name: product.name,
+            amount,
+            unitName: product.unit_name,
+            date: today
+        })
+            .then(res => console.log(res))
 
     }
 

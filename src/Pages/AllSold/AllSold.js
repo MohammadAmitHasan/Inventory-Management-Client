@@ -6,8 +6,8 @@ import LastSoldSm from '../Shared/LastSoldSm/LastSoldSm';
 const AllSold = () => {
     const { soldProducts } = useSoldProducts();
     return (
-        <div className='container mx-auto'>
-            <h2 className='text-red-400 text-center text-4xl font-semibold'>Last 10 Sold Products</h2>
+        <div className='container mx-auto mt-14'>
+            <h2 className='text-red-400 text-center text-4xl font-semibold'>All Recent Sold Products</h2>
 
             <div className="rounded-t-xl text-left mt-5 hidden sm:block" >
                 <table className="table-auto mx-auto text-center shadow-lg shadow-purple-500">

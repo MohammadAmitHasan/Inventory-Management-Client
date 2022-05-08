@@ -12,6 +12,7 @@ import MyItems from './Pages/MyItems/MyItems';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import Footer from './Pages/Shared/Footer/Footer';
 import AllSold from './Pages/AllSold/AllSold';
+import AllStockUpdate from './Pages/AllStockUpdate/AllStockUpdate';
 
 function App() {
   return (
@@ -47,7 +48,7 @@ function App() {
         }></Route>
 
         <Route path='/allSold' element={<AllSold></AllSold>}></Route>
-
+        <Route path='/allStockUpdate' element={<AllStockUpdate></AllStockUpdate>}></Route>
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
 
       </Routes>
