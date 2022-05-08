@@ -11,6 +11,7 @@ import AddItem from './Pages/AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import Footer from './Pages/Shared/Footer/Footer';
+import AllSold from './Pages/AllSold/AllSold';
 
 function App() {
   return (
@@ -44,6 +45,8 @@ function App() {
             <MyItems></MyItems>
           </RequireAuth>
         }></Route>
+
+        <Route path='/allSold' element={<AllSold></AllSold>}></Route>
 
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
 

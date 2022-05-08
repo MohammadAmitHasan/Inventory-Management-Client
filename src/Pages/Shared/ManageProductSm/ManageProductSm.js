@@ -28,7 +28,7 @@ const ManageProductSm = ({ product }) => {
         <div className='shadow-md shadow-purple-500  p-3 rounded-lg'>
 
             <div className='flex'>
-                <div className='flex items-center'>
+                <div className='flex items-center mr-2'>
                     <div>
                         <img className='w-20 mr-3 rounded-lg' src={img} alt="product" />
                     </div>

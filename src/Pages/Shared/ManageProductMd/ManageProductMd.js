@@ -14,7 +14,7 @@ const ManageProductMd = ({ product, handleDeleteItem }) => {
 
     return (
         <tr className='hover:bg-zinc-900'>
-            <td className=" font-medium"><img src={img}
+            <td><img src={img}
                 className="w-20" alt="Product" /></td>
 
             <td className=" px-4 py-2 font-medium">{name}</td>

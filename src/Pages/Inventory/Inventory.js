@@ -10,7 +10,7 @@ const Inventory = () => {
     useEffect(() => {
         axios.get(`http://localhost:5000/products/${id}`)
             .then(data => setProduct(data.data))
-    }, [id])
+    }, [product, id])
 
     // Handle delivered button action
     const handleDelivered = (e) => {
@@ -22,8 +22,24 @@ const Inventory = () => {
         axios.put(`http://localhost:5000/updateStock/${id}`, {
             quantity: product.quantity - (+amount)
         })
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    toast(`${amount} ${product.unit_name} ${product.name} Delivered`)
+                }
+            })
+
+        // send the sold data to server
+        const totalPrice = product.price * amount;
+        const today = new Date().toDateString();
+        axios.post('http://localhost:5000/sold', {
+            img: product.img,
+            name: product.name,
+            amount,
+            unitName: product.unit_name,
+            totalPrice,
+            date: today
+        })
             .then(res => console.log(res))
-        toast(`${amount} ${product.unit_name} ${product.name} Delivered`)
     }
 
     // Handle added to stock item 
@@ -36,9 +52,12 @@ const Inventory = () => {
         axios.put(`http://localhost:5000/updateStock/${id}`, {
             quantity: product.quantity + (+amount)
         })
-            .then(res => console.log(res))
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    toast(`${amount} ${product.unit_name} ${product.name} Added in stock`)
+                }
+            })
 
-        toast(`${amount} ${product.unit_name} ${product.name} Added in stock`)
     }
 
     return (
