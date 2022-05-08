@@ -5,8 +5,11 @@ const useUpdateStock = (amount) => {
     const [updateStocks, setUpdateStocks] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://nim-server.herokuapp.com/stockUpdate?amount=${amount}`)
-            .then(data => setUpdateStocks(data.data))
+        const getUpdateStock = async () => {
+            await axios.get(`https://nim-server.herokuapp.com/stockUpdate?amount=${amount}`)
+                .then(data => setUpdateStocks(data.data))
+        }
+        getUpdateStock()
     }, [amount])
     return updateStocks
 }

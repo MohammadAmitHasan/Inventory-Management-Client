@@ -5,8 +5,12 @@ const useSoldProducts = (amount) => {
     const [soldProducts, setSoldProducts] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://nim-server.herokuapp.com/soldProducts?amount=${amount}`)
-            .then(data => setSoldProducts(data.data))
+        const getSoldProducts = async () => {
+            await axios.get(`https://nim-server.herokuapp.com/soldProducts?amount=${amount}`)
+                .then(data => setSoldProducts(data.data))
+        }
+        getSoldProducts()
+
     }, [amount])
     return { soldProducts, setSoldProducts }
 }

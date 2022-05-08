@@ -59,7 +59,6 @@ const Blogs = () => {
                     Server creates a token using jwt and sends it to the client side. Client site stores the token on either local storage or browser cookies. When the client makes a request it sends the stored token to the server for authentication. Server verifies the jwt signature and authorizes the client. If the jwt is valid it responds to the request otherwise the server doesn't give the access permission.
                 </p>
 
-
             </div>
         </div>
     );
