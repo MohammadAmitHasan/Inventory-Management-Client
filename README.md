@@ -4,11 +4,15 @@ NIM is a inventory management system that make the life easier of users with it'
 
 ## Click to visit [Live Website Link](https://nasah-inventory-management.web.app/).
 
-## Some Special Features
-* Easy Inventory Management
-* Cloud Data Storage
-* Authentication system
-* Get data from any place
+## Features
+
+* Users can observe the stock of every product, the last imported product’s list, the last
+sale product’s list, and update the stock amount easily.
+* Users can easily add new product items in add a product section.
+* User-wise secure data filtration. A user can see the products he/he has added to the list
+of products.
+* The website has a secure user authentication system and a secured data protection
+system.
 
 ## Technologies Used to make this project
 * React.Js
